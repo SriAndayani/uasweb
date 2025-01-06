@@ -1,0 +1,72 @@
+/* STYLE NAVBAR */
+.navbar-custom {
+    background-color: #280594;
+    height: 108px;
+}
+
+.brand-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    color: #FFFFFF;
+}
+
+.btn-custom-regis {
+    background-color: #F8A39B;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    color: #FFFFFF;
+    padding: 10px 20px;
+}
+
+.btn-custom-login {
+    border: 1px solid #F8A39B;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    color: #F8A39B;
+    padding: 10px 20px;
+}
+
+.e{
+    color: #F8A39B;
+}
+/* STYLE NAVBAR */
+
+/* STYLE HOME CONTENT */
+
+.font-1{
+    color: black;
+}
+
+.font-2{
+    font-family: 'Poppins', sans-serif;
+    color: #646768;
+    
+}
+
+/* STYLE HOME CONTENT */
+
+/* STYLE FOOTER */
+.footer-custom {
+    background-color: #280594; /* Warna ungu sesuai desain awal */
+    color: #ffffff; /* Warna teks putih */
+}
+
+.line
+{
+    background-color: #F8A39B;
+}
+
+.icon-spacing a {
+    margin-right: 15px; /* Tambahkan margin antar ikon */
+}
+
+.icon-spacing a:last-child {
+    margin-right: 0; /* Hapus margin pada ikon terakhir */
+}
+
+/* FOOTER END */

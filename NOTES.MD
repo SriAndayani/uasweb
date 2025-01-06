@@ -58,4 +58,8 @@ kayanya kalo kaya di atas tu sangat ribet bacanya yah teman teman. jadi aku buat
 
 - kita buat middleware baru 'php artisan make:middleware userAkses'
 
-- 
+-
+
+
+
+SKEMA DATABASE

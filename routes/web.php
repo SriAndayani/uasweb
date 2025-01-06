@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\adminController;
-use App\Http\Controllers\usersController;
+use App\Http\Controllers\eventController;
 use App\Http\Controllers\roleController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,28 +17,43 @@ use Illuminate\Support\Facades\Route;
 */
 // 'guest' alias melakukan proses redirect, agar akun yang mengarah ke halaman kita sudah melakukan login
 Route::middleware(['guest'])->group(function(){
-    //daftarkan login
-    Route::get('/', [roleController::class, 'index'])->name('welcome'); //bakal jadi redirect ke halaman utama
+    //------- Halaman utama sebelum LOGIN -------
+    Route::get('/', [eventController::class, 'index']);
+
+    //------- RUTE LOGIN -------
     Route::get('/login', function () {
         return view('login');
     })->name('login');
     Route::post('/login', [roleController::class, 'login']);
+
+    //------- RUTE REGISTER -------
+    Route::get('/register', function () {
+        return view('register');
+    })->name('register');
+    Route::post('/register', [roleController::class, 'store']);
 });
 
-Route::get('/register', function () {
-    return view('register');
-})->name('register');
-Route::post('/register', [RoleController::class, 'store']);
-
-Route::get('/home', function(){
-    return redirect('/admin');
-});
-
+// Route setelah Login
 Route::middleware(['auth'])->group(function(){
-    Route::get('/dashboard', [usersController::class, 'index']);
-    Route::get('/admin', [usersController::class, 'admin']);//->middleware('userAkses:admin');
-    Route::get('/penyelenggara', [usersController::class, 'penyelenggara']);//->middleware('userAkses:penyelenggara');
-    Route::get('/pelanggan', [usersController::class, 'pelanggan']);//->middleware('userAkses:pelanggan');
+    //------- Halaman Pelanggan setelah LOGIN --------
+    Route::get('/dashboard', [roleController::class, 'pelanggan'])->name('pelanggan');//->middleware('userAkses:pelanggan');
+
+    //------ ROUTE ADMIN -------
+    //------ DATA USER ------
+    Route::get('/admin', [roleController::class, 'admin']);//->middleware('userAkses:admin');
+    Route::get('/admin/admin', [adminController::class, 'admin'])->name('admin.admin');
+    Route::get('/admin/admin/create', [adminController::class, 'createAdmin'])->name('admin.create');
+    Route::post('/admin/admin/store', [adminController::class, 'storeAdmin'])->name('admin.store');
+    Route::delete('/admin/admin/destroy/{user_id}', [adminController::class, 'destroy'])->name('admin.destroy');
+    Route::get('/admin/pelanggan', [adminController::class, 'pelanggan'])->name('admin.pelanggan');
+
+    //------ DATA EVENT -----
+    Route::get('/admin/event', [eventController::class, 'event'])->name('admin.event');
+    Route::get('/admin/event/create', [eventController::class, 'create'])->name('event.create');
+    Route::get('/admin/event/detail/{event_id}', [eventController::class, 'show'])->name('event.detail');
+    Route::get('/admin/event/edit/{event_id}', [eventController::class, 'edit'])->name('event.edit');
+    Route::put('/admin/event/update/{event_id}', [eventController::class, 'update'])->name('event.update');
+
     // daftarkan logout
     Route::get('/logout', [roleController::class, 'logout']);
 });

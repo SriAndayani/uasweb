@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 class roleController extends Controller
 {
     public function index(){
-        return view('welcome');
+        return view('index');
     }
 
     public function login(Request $request){
@@ -56,7 +56,6 @@ class roleController extends Controller
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:6',
             'phone' => 'required',
-            'role' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -67,19 +66,25 @@ class roleController extends Controller
         User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password), // Hash password
+            'password' => $request->password, // Hash password 'Hash::make($request->password)'
             'phone' => $request->phone,
-            'role' => $request->role,
         ]);
 
         // Redirect atau tampilkan pesan sukses
         return redirect('/login')->with('success', 'Registration successful! Please log in.');
     }
 
-
     // function logout
     public function logout(){
         Auth::logout();
-        return redirect('');
+        return redirect('/');
+    }
+
+    public function admin(){
+        return view('layout.admin');
+    }
+
+    public function pelanggan(){
+        return view('pelanggan.index');
     }
 }
