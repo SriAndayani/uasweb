@@ -4,7 +4,7 @@
 <div class="content-wrapper">
     <div class="card">
         <div class="card-body">
-                <h1>Data Event Aktif</h1>
+                <h1>Detail Tiket {{ $event->nama }}</h1>
                 @if (session('created'))
                 <div class="alert alert-success" role="alert">
                     {{ session('created') }}
@@ -22,42 +22,35 @@
                 @endif
                 <hr>
                 <div class="d-flex justify-content-end mb-3">
-                    {{-- FORM PENCARIAN --}}
-                    <form action="#" method="GET" class="m-2">
-                        <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari barang...." class="form-control" style="width: 300px; display: inline-block;">
-                        <button type="submit" class="btn btn-secondary">Cari</button>
-                    </form>
 
                     <div class="d-flex justify-content-end m-2">
-                        <a href="{{ route('event.create') }}" class="btn btn-primary">
-                            Tambah Event
+                        <a href="{{ route('admin.create') }}" class="btn btn-primary">
+                            Tambah Jenis Tiket
                         </a>
                     </div>
                 </div>
-
                 <hr>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama</th>
-                            <th>Penyelenggara</th>
-                            <th>status</th>
+                            <th>Nama Kategori</th>
+                            <th>Deskripsi</th>
+                            <th>Harga</th>
+                            <th>Stok Tiket</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($events as $i => $d)
+                        @foreach ($tikets as $i => $d)
                         <tr>
                             <td>{{ $i+1 }}</td>
-                            <td>{{ $d->nama }}</td>
-                            <td>{{ $d->penyelenggara }}</td>
-                            <td>{{ $d->is_aktif == '1' ? 'Aktif' : 'Nonaktif' }}</td>
+                            <td>{{ $d->nama_kategori }}</td>
+                            <td>{{ $d->deskripsi }}</td>
+                            <td>{{ $d->price }}</td>
+                            <td>{{ $d->stok_tiket }}</td>
                             <td>
-                                <a href="{{ route('event.detail', $d->id) }}" class="btn btn-sm btn-info">
-                                    <i class='bx bxs-user-detail'></i>
-                                </a>
-                                <a href="{{ route('event.edit', $d->id) }}" class="btn btn-sm btn-warning">
+                                <a href="#" class="btn btn-sm btn-warning">
                                     <i class='bx bxs-edit-alt' ></i>
                                 </a>
                                 <button type="button" class="btn btn-sm btn-danger"
@@ -75,8 +68,9 @@
                     </tbody>
                 </table>
         </div>
-
     </div>
+</div>
+<hr>
 </div>
 @endsection
 

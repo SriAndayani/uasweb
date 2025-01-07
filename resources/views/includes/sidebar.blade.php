@@ -85,7 +85,7 @@
                             </a>
                     </li>
                     <li class="nav-item">
-                        <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                        <a href="{{ route('admin.tiket') }}" class="nav-link">
                             <i class='bx bxs-receipt'></i>
                             <p>Tiket</p>
                             </a>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\eventController;
 use App\Http\Controllers\roleController;
+use App\Http\Controllers\tiketController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,7 +37,6 @@ Route::middleware(['guest'])->group(function(){
 // Route setelah Login
 Route::middleware(['auth'])->group(function(){
     //------- Halaman Pelanggan setelah LOGIN --------
-    Route::get('/dashboard', [roleController::class, 'pelanggan'])->name('pelanggan');//->middleware('userAkses:pelanggan');
 
     //------ ROUTE ADMIN -------
     //------ DATA USER ------
@@ -50,12 +50,24 @@ Route::middleware(['auth'])->group(function(){
     //------ DATA EVENT -----
     Route::get('/admin/event', [eventController::class, 'event'])->name('admin.event');
     Route::get('/admin/event/create', [eventController::class, 'create'])->name('event.create');
+    Route::post('/admin/event/store', [eventController::class, 'store'])->name('event.store');
     Route::get('/admin/event/detail/{event_id}', [eventController::class, 'show'])->name('event.detail');
     Route::get('/admin/event/edit/{event_id}', [eventController::class, 'edit'])->name('event.edit');
     Route::put('/admin/event/update/{event_id}', [eventController::class, 'update'])->name('event.update');
 
-    // daftarkan logout
+    //------ DATA TIKET -----
+    Route::get('admin/tiket/', [tiketController::class, 'index'])->name('admin.tiket');
+    Route::get('admin/tiket/show/{tiket_id}', [tiketController::class, 'show'])->name('tiket.show');
+    Route::get('admin/tiket/detail/{tiket_id}', [tiketController::class, 'detail'])->name('tiket.detail');
+    Route::get('/admin/tiket/create', [tiketController::class, 'create'])->name('tiket.create');
+    Route::post('/admin/tiket/store', [tiketController::class, 'store'])->name('tiket.store');
+
+
+    //------ LOGOUT -----
     Route::get('/logout', [roleController::class, 'logout']);
 });
 
 
+Route::get('/welocme', function () {
+    return view('welcome');
+});

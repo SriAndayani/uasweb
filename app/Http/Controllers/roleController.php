@@ -85,6 +85,6 @@ class roleController extends Controller
     }
 
     public function pelanggan(){
-        return view('pelanggan.index');
+        
     }
 }

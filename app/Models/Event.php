@@ -9,8 +9,17 @@ class Event extends Model
 {
     use HasFactory;
 
-    public function tiket()
+    protected $fillable = [
+        'nama',
+        'penyelenggara',
+        'gambar',
+        'tanggal_event',
+        'lokasi',
+        'deskripsi'
+    ];
+
+    public function tikets()
     {
-        return $$this->hasMany(Tiket::class);
+        return $this->hasMany(Tiket::class, 'event_id', 'id');
     }
 }

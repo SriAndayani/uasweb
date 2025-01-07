@@ -6,7 +6,7 @@
         <div class="card-body">
                 <h1>Form Tambah Event Baru</h1>
                 <div>
-                <form action="{{ route('event.create')}}" method="post">
+                <form action="{{ route('event.store')}}" method="post">
                     @csrf
                     <hr>
                     <div class="form-group">

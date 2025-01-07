@@ -42,12 +42,12 @@ class eventController extends Controller
             'nama' => $request->nama,
             'penyelenggara' => $request->penyelenggara,
             'gambar' => $request->gambar,
-            'tanggal_event' => $request->tanggal_event,
+            'tanggal_event' => $request->tanggal_event, 
             'lokasi' => $request->lokasi,
             'deskripsi' => $request->deskripsi,
         ]);
 
-        return redirect()->route('barang.index')->with('created', 'Data barang berhasil di tambahkan');
+        return redirect()->route('admin.event')->with('created', 'Data Event berhasil di tambahkan');
     }
 
     public function edit($event_id)
