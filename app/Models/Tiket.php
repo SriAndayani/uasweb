@@ -13,11 +13,17 @@ class Tiket extends Model
         'event_id',
         'nama_kategori',
         'deskripsi',
-        'harga'
+        'price',
+        'stok_tiket'
     ];
 
     public function event()
     {
         return $this->belongsTo(Event::class, 'event_id', 'id');
+    }
+
+    public function Pemesanans()
+    {
+        return $this->hasMany(Pemesanan::class, 'tiket_id', 'id');
     }
 }

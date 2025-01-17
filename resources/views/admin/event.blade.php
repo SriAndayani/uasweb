@@ -23,8 +23,8 @@
                 <hr>
                 <div class="d-flex justify-content-end mb-3">
                     {{-- FORM PENCARIAN --}}
-                    <form action="#" method="GET" class="m-2">
-                        <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari barang...." class="form-control" style="width: 300px; display: inline-block;">
+                    <form action="{{ route('admin.event') }}" method="GET" class="m-2">
+                        <input type="text" name="search" value="{{ request('search') }}" placeholder="ketikan nama & penyelenggara" class="form-control" style="width: 300px; display: inline-block;">
                         <button type="submit" class="btn btn-secondary">Cari</button>
                     </form>
 
@@ -64,7 +64,7 @@
                                     onclick="hapusData(`btndelete{{ $d->id }}`)">
                                     <i class='bx bxs-trash' ></i>
                                 </button>
-                                <form action="#" method="POST" style="display: none">
+                                <form action="{{ route('event.destroy', $d->id) }}" method="POST" style="display: none">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="hidden" style="display: none" id="btndelete{{ $d->id }}"></button>

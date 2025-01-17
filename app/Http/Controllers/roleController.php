@@ -14,6 +14,21 @@ class roleController extends Controller
         return view('index');
     }
 
+    public function detail($event_id)
+    {
+        $event = \App\Models\Event::with('tikets')->findOrFail($event_id);
+
+        return view('pelanggan.detail', [
+            'event' => $event,
+            'tikets' => $event->tikets,
+        ]);
+    }
+
+    public function pemesanan()
+    {
+        return view('pelanggan.pemesanan');
+    }
+
     public function login(Request $request){
         // kita bikin requestnya
         $request->validate([      //ini untuk ngevalidasi isi dari form login kita
@@ -66,7 +81,7 @@ class roleController extends Controller
         User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password, // Hash password 'Hash::make($request->password)'
+            'password' => Hash::make($request->password), // Hash password 'Hash::make($request->password)'
             'phone' => $request->phone,
         ]);
 
@@ -84,7 +99,4 @@ class roleController extends Controller
         return view('layout.admin');
     }
 
-    public function pelanggan(){
-        
-    }
 }

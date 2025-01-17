@@ -24,7 +24,7 @@
                 <div class="d-flex justify-content-end mb-3">
 
                     <div class="d-flex justify-content-end m-2">
-                        <a href="{{ route('admin.create') }}" class="btn btn-primary">
+                        <a href="{{ route('tiket.create', $event->id) }}" class="btn btn-primary">
                             Tambah Jenis Tiket
                         </a>
                     </div>
@@ -50,14 +50,14 @@
                             <td>{{ $d->price }}</td>
                             <td>{{ $d->stok_tiket }}</td>
                             <td>
-                                <a href="#" class="btn btn-sm btn-warning">
+                                <a href="{{ route('tiket.edit', $d->id) }}" class="btn btn-sm btn-warning">
                                     <i class='bx bxs-edit-alt' ></i>
                                 </a>
                                 <button type="button" class="btn btn-sm btn-danger"
                                     onclick="hapusData(`btndelete{{ $d->id }}`)">
                                     <i class='bx bxs-trash' ></i>
                                 </button>
-                                <form action="#" method="POST" style="display: none">
+                                <form action="{{ route('tiket.destroy', $d->id) }}" method="POST" style="display: none">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="hidden" style="display: none" id="btndelete{{ $d->id }}"></button>

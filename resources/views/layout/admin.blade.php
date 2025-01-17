@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="{{ asset('favicon.png') }}" type="image/x-icon">
+  <link rel="shortcut icon" href="{{ asset('favicon.png') }}" type="image/x-icon">
   <title>Admin | Dashboard</title>
 
   <!-- Google Font: Source Sans Pro -->
@@ -26,6 +28,7 @@
   <link rel="stylesheet" href="{{ asset('lte/plugins/daterangepicker/daterangepicker.css') }}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{ asset('lte/summernote/summernote-bs4.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -33,7 +36,7 @@
 
 <!-- Preloader -->
 <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="{{ asset('lte/dist/img/AdminLTELogo.png') }}" alt="AdminLTELogo" height="60" width="60">
+    <img class="animation__shake" src="{{ asset('asset/Logo1.png') }}" alt="AdminLTELogo" height="30%" width="30%">
 </div>
 
 <!-- Main Sidebar Container -->

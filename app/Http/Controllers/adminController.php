@@ -2,11 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
+use App\Models\Pemesanan;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class adminController extends Controller
 {
+    public function dashboard()
+    {
+        // Jumlah user aktif
+        $activeUsers = User::where('role', 'pelanggan')->count();
+
+        // Jumlah admin aktif
+        $activeAdmins = User::where('role', 'admin')->count();
+
+        // Jumlah transaksi
+        $totalTransactions = Pemesanan::where('status', 'dibayar')->count();
+
+        // Jumlah event aktif
+        $activeEvents = Event::count();
+
+        return view('admin.dashboard', compact('activeUsers', 'activeAdmins', 'totalTransactions', 'activeEvents'));
+    }
+
    public function admin()
    {
         $user = User::where('role', 'admin')->get();

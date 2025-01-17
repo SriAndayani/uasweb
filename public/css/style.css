@@ -3,7 +3,6 @@
     background-color: #280594;
     height: 108px;
 }
-
 .brand-title {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
@@ -11,6 +10,32 @@
     color: #FFFFFF;
 }
 
+.navbar-logo{
+    width: 100%; /* Sesuaikan lebar dengan ukuran kartu */
+    height: 100px; /* Tentukan tinggi yang konsisten */
+    object-fit: cover; /* Menyesuaikan gambar dengan proporsi */
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.navbar-nav .nav-item a {
+    color: white; /* Mengubah warna font menjadi putih */
+    font-weight: bold; /* Mengatur font menjadi tebal */
+    text-decoration: none; /* Menghilangkan underline */
+}
+.dropdown-menu {
+    background-color: #333; /* Warna latar belakang dropdown */
+    color: #fff; /* Warna teks */
+}
+
+.dropdown-menu .dropdown-item {
+    color: #fff; /* Warna teks item dropdown */
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #444; /* Warna saat item di-hover */
+    color: #fff; /* Warna teks saat di-hover */
+}
 .btn-custom-regis {
     background-color: #F8A39B;
     border-radius: 8px;
@@ -31,6 +56,19 @@
     padding: 10px 20px;
 }
 
+.button {
+    background-color: #F8A39B;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    color: #280594;
+    padding: 10px 20px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
 .e{
     color: #F8A39B;
 }
@@ -45,7 +83,7 @@
 .font-2{
     font-family: 'Poppins', sans-serif;
     color: #646768;
-    
+
 }
 
 /* STYLE HOME CONTENT */
@@ -69,4 +107,240 @@
     margin-right: 0; /* Hapus margin pada ikon terakhir */
 }
 
-/* FOOTER END */
+/* CONTENT */
+.container {
+    width: auto;
+    overflow: hidden;
+}
+
+.event-image {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.img-same-size {
+    width: 100%; /* Sesuaikan lebar dengan ukuran kartu */
+    height: 200px; /* Tentukan tinggi yang konsisten */
+    object-fit: cover; /* Menyesuaikan gambar dengan proporsi */
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.event-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.event-details {
+    display: flex;
+    justify-content: space-between;
+    background: #fff;
+    padding: 30px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.event-details div {
+    width: 45%;
+}
+.event-details h2 {
+    margin-top: 0;
+    font-size: 1.8em;
+    border-bottom: 2px solid #280594;
+    padding-bottom: 10px;
+}
+.event-description {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.event-description h3 {
+    margin-top: 0;
+    font-size: 1.8em;
+    border-bottom: 2px solid #280594;
+    padding-bottom: 10px;
+}
+.ticket-info {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+.ticket-info p {
+    margin: 15px 0;
+    font-size: 1.1em;
+}
+.ticket-info strong {
+    display: block;
+    margin: 10px 0;
+    font-size: 1.4em;
+}
+.buy-ticket-btn {
+    display: inline-block;
+    background: #280594;
+    color: #fff;
+    padding: 12px 35px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: background 0.3s ease;
+    margin-top: 15px;
+}
+.buy-ticket-btn:hover {
+    background: #F8A39B;
+    color: #280594;
+}
+.ticket-info img.ticket-icon {
+    margin-right: 15px; /* Jarak antara ikon dan teks */
+    width: 50px; /* Sesuaikan ukuran ikon */
+    height: auto;
+}
+
+/* PEMESANAN */
+.container-pemesanan {
+    width: 80%;
+    margin: 40px auto;
+}
+.page-header {
+    text-align: center;
+    margin-bottom: 40px;
+    animation: fadeIn 1s ease;
+}
+.page-header h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+.ticket-selection {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    animation: slideUp 1s ease;
+}
+.ticket-selection h3 {
+    margin-top: 0;
+    font-size: 1.8em;
+    border-bottom: 2px solid #280594;
+    padding-bottom: 10px;
+    font-weight: 500;
+}
+.ticket-info {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    animation: slideUp 1s ease;
+}
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.3s;
+}
+.card:hover {
+    transform: translateY(-10px);
+}
+.card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.ticket-info {
+    text-align: left; /* Pastikan semua teks di dalam elemen ini rata kiri */
+}
+
+.ticket-info .row {
+    display: block; /* Pastikan flexbox tidak membuat elemen saling menumpuk secara aneh */
+    margin: 0; /* Hilangkan margin bawaan */
+    padding: 0; /* Hilangkan padding bawaan */
+}
+
+.ticket-info p {
+    margin: 15px 0;
+    font-size: 1.1em;
+}
+.ticket-price {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #280594;
+}
+.ticket-quantity {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+.ticket-quantity input {
+    width: 60px;
+    text-align: center;
+}
+.buy-ticket-btn {
+    background: #280594;
+    color: #fff;
+    padding: 12px 35px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: background 0.3s ease, transform 0.3s;
+    margin-top: 20px;
+}
+.buy-ticket-btn:hover {
+    background: #F8A39B;
+    color: #280594;
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+    0% { transform: translateY(50px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Media query for responsive design */
+@media (max-width: 767px) {
+    .container {
+        width: 90%;
+    }
+    .ticket-selection, .ticket-info {
+        padding: 20px;
+    }
+    .ticket-info .col-md-4 {
+        margin-bottom: 20px;
+    }
+}
+
+/* PEMBAYARAN */
+
+.qris {
+    max-width: 20%; /* Pastikan gambar tidak melebihi lebar div */
+    max-height: 20%; /* Pastikan gambar tidak melebihi tinggi div */
+    object-fit: contain; /* Gambar disesuaikan dengan proporsi */
+}
+
+/* RIWAYAT */
+.custom-card {
+    text-align: left !important; /* Atur agar teks selalu rata kiri */
+}

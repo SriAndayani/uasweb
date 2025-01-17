@@ -90,3 +90,14 @@ button {
 a{
     color: #F8A39B;
 }
+
+.image-box{
+    position: absolute;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: #280594;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class eventController extends Controller
 {
@@ -16,11 +17,20 @@ class eventController extends Controller
         ]);
     }
 
-    public function event()
+    public function event(Request $request)
     {
-        $events = Event::all();
+        $search = $request->input('search');
+
+        $events = Event::when($search, function ($query, $search) {
+            return $query->where('nama', 'like', "%{$search}%")
+                         ->orWhere('penyelenggara', 'like', "%{$search}%");
+        })
+        ->orderBy('created_at', 'desc')
+        ->get();
+
         return view('admin.event', [
-            'events' => $events
+            'events' => $events,
+            'search' => $search
         ]);
     }
 
@@ -41,13 +51,22 @@ class eventController extends Controller
         Event::create([
             'nama' => $request->nama,
             'penyelenggara' => $request->penyelenggara,
-            'gambar' => $request->gambar,
-            'tanggal_event' => $request->tanggal_event, 
+            'gambar' => 'storage/'.$this->storeFile('gambar_event', $request->file('gambar')),
+            'tanggal_event' => $request->tanggal_event,
             'lokasi' => $request->lokasi,
             'deskripsi' => $request->deskripsi,
         ]);
 
         return redirect()->route('admin.event')->with('created', 'Data Event berhasil di tambahkan');
+    }
+
+    public static function storeFile(string $folder, $file)
+    {
+        if ($file && $file->isValid()) {
+            return $file->store($folder, 'public');
+        }
+
+        return null;
     }
 
     public function edit($event_id)
@@ -59,39 +78,24 @@ class eventController extends Controller
 
     public function update(Request $request, $event_id)
     {
-        $request->validate([
-            'nama' => 'required|string|max:255',
-            'penyelenggara' => 'required|string|max:255',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi untuk gambar
-            'tanggal_event' => 'required|date',
-            'lokasi' => 'required|string|max:255',
-            'deskripsi' => 'nullable|string',
-        ]);
-
-        $events = Event::findOrFail($event_id);
-
-        // Jika ada file gambar baru yang diunggah
-        if ($request->hasFile('gambar')) {
-            // Hapus gambar lama
-            if ($events->gambar && file_exists(storage_path('app/public/' . $events->gambar))) {
-                unlink(storage_path('app/public/' . $events->gambar));
-            }
-
-            // Simpan gambar baru
-            $path = $request->file('gambar')->store('asset/event', 'public');
-            $events->gambar = $path;
-        }
 
         // Update data event
-        $events->update([
+        Event::where('id', $event_id)->update([
             'nama' => $request->nama,
             'penyelenggara' => $request->penyelenggara,
+            'gambar' => 'storage/'.$this->storeFile('gambar_event', $request->file('gambar')),
             'tanggal_event' => $request->tanggal_event,
             'lokasi' => $request->lokasi,
             'deskripsi' => $request->deskripsi,
         ]);
 
-        return redirect()->route('admin.event', $events->id)->with('updated', 'Data Event berhasil di edit!');
+        return redirect()->route('admin.event')->with('updated', 'Data barang berhasi di edit!');
     }
 
+    public function destroy($event_id)
+   {
+        Event::where('id', $event_id)->delete();
+
+        return redirect()->route('admin.admin')->with('deleted', 'Akun Admin berhasil di hapus!');
+   }
 }

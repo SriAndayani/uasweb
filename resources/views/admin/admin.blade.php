@@ -22,12 +22,6 @@
                 @endif
                 <hr>
                 <div class="d-flex justify-content-end mb-3">
-                    {{-- FORM PENCARIAN --}}
-                    <form action="#" method="GET" class="m-2">
-                        <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari dengan nama" class="form-control" style="width: 300px; display: inline-block;">
-                        <button type="submit" class="btn btn-secondary">Cari</button>
-                    </form>
-
                     <div class="d-flex justify-content-end m-2">
                         <a href="{{ route('admin.create') }}" class="btn btn-primary">
                             Tambah Admin

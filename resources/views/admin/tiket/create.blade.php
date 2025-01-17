@@ -6,7 +6,7 @@
         <div class="card-body">
                 <h1>Tambah Jenis Tiket</h1>
                 <div>
-                <form action="{{ route('tiket.store')}}" method="post">
+                <form action="{{ route('tiket.store', $event_id)}}" method="post">
                     @csrf
                     <hr>
                     <div class="form-group">
@@ -18,12 +18,12 @@
                         <input type="text" name="deskripsi" id="deskripsi" class="form-control" placeholder="Masukkan nama penyelenggara" required>
                     </div>
                     <div class="form-group">
-                        <label for="harga">Harga</label>
-                        <input type="decimal" name="harga" id="harga" class="form-control">
+                        <label for="price">Harga</label>
+                        <input type="number" step="0.01" name="price" id="price" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="stok_tiket">Stok</label>
-                        <input type="integer" name="stok_tiket" id="stok_tiket" class="form-control" required>
+                        <input type="number" step="1" name="stok_tiket" id="stok_tiket" class="form-control" required>
                     </div>
                     <hr>
                     <div class="text-center">

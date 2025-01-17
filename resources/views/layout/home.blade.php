@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="{{ asset('favicon.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('favicon.png') }}" type="image/x-icon">
     <title>Tiket-Event</title>
     <!-- Google Font: Source Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,15 +28,23 @@
   <link rel="stylesheet" href="{{ asset('lte/plugins/daterangepicker/daterangepicker.css') }}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{ asset('lte/summernote/summernote-bs4.min.css') }}">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   {{-- css --}}
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
-
-    @include('includes.navbar_ao')
-
+    @guest
+        {{-- navbar sebelum login --}}
+        @include('includes.navbar_ao')
+    @endguest
+    @auth
+        {{-- navbar setelah login --}}
+        @include('includes.navbar_al')
+    @endauth
+    {{-- konten utama --}}
     @yield('content')
-
+    @stack('js')
+    {{-- footer --}}
     @include('includes.footer')
 
     <!-- jQuery -->

@@ -21,33 +21,29 @@
     </div>
 </div>
 {{-- card event --}}
-<h3 class="p-5">Rekomendasi Event</h3>
+<h3 class="p-5 text-center text-underline">Rekomendasi Event</h3>
 <div class="container px-4">
     <div class="container">
         <div class="row g-2">
-        @foreach ($events as $event)
-            <div class="col-4 mb-3"> {{-- dari sini ygy --}}
-                <div class="p-3">
-                    <div class="card" style="width: 18rem;">
-                        <img src="{{ $event->gambar }}" class="card-img-top" style="border-top-left-radius: 5px; border-top-right-radius: 5px;" alt="...">
-                        <div class="card-body">
-                            <h5 style="margin-bottom: 1px;">{{ $event->nama }}</h5>
-                            <p class="font-1" style="margin-top: 1px; margin-bottom: 1px;">{{ \Carbon\Carbon::parse($event->tanggal_event)->format('d F Y') }}</p>
-                            <p class="font-2 card-text" style="margin-top: 1px; margin-bottom: 1px;">{{ $event->lokasi }}</p>
-                            <hr>
-                            <div class="d-flex" style="justify-content: space-between;">
-                                <p class="font-2">Mulai dari</p>
-                                <p class="font-2">Rp 100.000</p>
+            @foreach ($events as $event)
+                <div class="col-4 mb-3">
+                    <div class="p-3">
+                        <div class="card" style="width: 18rem;">
+                            <img src="{{ $event->gambar }}" class="card-img-top img-same-size" alt="...">
+                            <div class="card-body">
+                                <h5 style="margin-bottom: 1px;">{{ $event->nama }}</h5>
+                                <p class="font-1" style="margin-top: 1px; margin-bottom: 1px;">{{ \Carbon\Carbon::parse($event->tanggal_event)->format('d F Y') }}</p>
+                                <hr>
+                                <div class="mb-3 d-flex justify-content-center">
+                                    <a href="{{ route('detail.event', $event->id) }}" class="button">Beli Tiket</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        @endforeach
-
+            @endforeach
         </div>
     </div>
-
 </div>
 
 </div>

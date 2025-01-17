@@ -8,7 +8,7 @@
                     <h1>Form Edit Data Event</h1>
                 </div>
                     <div>
-                    <form action="{{ route('event.update', $events->id)}} " method="post" >
+                    <form action="{{ route('event.update', $events->id)}} " method="post" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <hr>
@@ -21,10 +21,8 @@
                             <input type="text" name="penyelenggara" id="penyelenggara" value="{{ old('penyelenggara', $events->penyelenggara) }}" class="form-control" placeholder="Masukkan nama penyelenggara" required>
                         </div>
                         <div class="form-group">
-                            <label>Gambar Saat Ini:</label>
-                            <img src="{{ asset('storage/' . $events->gambar) }}" alt="Gambar Event" width="150"><br>
-                            <label>Ganti Gambar:</label>
-                            <input type="file" name="gambar"><br>
+                            <label for="gambar" class="form-label">Ganti Gambar:</label>
+                            <input class="form-control" type="file" name="gambar" id="gambar" name="gambar"><br>
                         </div>
                         <div class="form-group">
                             <label for="tanggal_event">Tanggal Event</label>

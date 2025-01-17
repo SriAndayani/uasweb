@@ -7,13 +7,6 @@
                 <h1>Data Pelanggan</h1>
                 <hr>
                 <div class="d-flex justify-content-end mb-3">
-                    {{-- FORM PENCARIAN --}}
-                    <form action="#" method="GET" class="mb-3">
-                        <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari dengan nama" class="form-control" style="width: 300px; display: inline-block;">
-                        <button type="submit" class="btn btn-secondary">Cari</button>
-                    </form>
-                </div>
-
                 <hr>
                 <table class="table table-bordered">
                     <thead>

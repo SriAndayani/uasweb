@@ -1,0 +1,7 @@
+.card-img-top {
+    width: 100%; /* Sesuaikan lebar dengan ukuran kartu */
+    height: 200px; /* Tentukan tinggi yang konsisten */
+    object-fit: cover; /* Menyesuaikan gambar dengan proporsi */
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}

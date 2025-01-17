@@ -22,4 +22,9 @@ class Event extends Model
     {
         return $this->hasMany(Tiket::class, 'event_id', 'id');
     }
+
+    public function pemesanans()
+    {
+        return $this->hasMany(Pemesanan::class, 'event_id', 'id');
+    }
 }
