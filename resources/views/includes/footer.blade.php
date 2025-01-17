@@ -33,12 +33,12 @@
         <!-- Kolom Sosial Media -->
         <div class="col-md-3">
           <h5 class="fw-bold">Sosial Media</h5>
-          <div class="d-flex icon-spacing">
-            <a href="#" class="text-light"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" class="text-light"><i class="fa-brands fa-twitter"></i></a>
-            <a href="#" class="text-light"><i class="fa-brands fa-facebook"></i></a>
-            <a href="#" class="text-light"><i class="fa-brands fa-tiktok"></i></a>
-            <a href="#" class="text-light"><i class="fa-brands fa-youtube"></i></a>
+          <div class="d-flex justify-content-center align-items-center icon-spacing">
+            <a href="#" class="text-light"><i class='bx bxl-instagram'></i></a>
+            <a href="#" class="text-light"><i class='bx bxl-twitter' ></i></a>
+            <a href="#" class="text-light"><i class='bx bxl-tiktok' ></i></a>
+            <a href="#" class="text-light"><i class='bx bxl-tiktok' ></i></a>
+            <a href="https://web.whatsapp.com/" class="text-light"><i class='bx bxl-whatsapp' ></i></a>
           </div>
         </div>
       </div>
